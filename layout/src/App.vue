@@ -24,6 +24,60 @@
         <v-main class="d-flex align-center justify-center">
             <v-container>
 <v-row align="center" justify="center" >
+    <v-col cols="12" md="4" sm="6">
+<div class="position-absolute d-flex align-center justify-center">
+    <v-btn color="deep-purple-darken-2" size="x-large" @click="dialog = !dialog">
+        팝업창 열기
+    </v-btn>
+</div>        
+    </v-col>
+    <v-col cols="12" md="4" sm="6">
+
+    </v-col>
+    <v-col cols="12" md="4" sm="6">
+<v-card
+class="px-2 mx-auto"
+max-width="900"
+rounded="lg"
+text="How .... Vuetify?"
+theme="dark"
+title="SURVEY"
+variant="flat"
+>
+<template v-slot:append>
+    <div class="me-n2">
+        <v-btn
+        density="comfortable"
+        icon="$close"
+        variant="plain"
+        ></v-btn>
+    </div>
+</template>
+
+<v-item-group
+v-model="model"
+class="d-flex justify-sm-space-between px-6 pt-2 pb-6"
+>
+<v-item v-for="n in 5" :key="n">
+    <template v-slot:default="{toggle}">
+        <v-btn
+        :active="model != null && model + 1 >= n"
+        :icon="`mdi-numeric-${n}`"
+        height="40"
+        variant="text"
+        width="40"
+        border
+        @click="toggle"
+        >
+        </v-btn>
+    </template>
+</v-item>
+
+</v-item-group>
+</v-card>
+    </v-col>
+</v-row>
+<v-row align="center" justify="center" >
 <v-col cols="auto">
     <v-btn density="compact" icon="mdi-plus"></v-btn>
 </v-col>
