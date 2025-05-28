@@ -23,12 +23,16 @@
         </v-navigation-drawer>
 
 
-        <v-main class="d-flex align-center justify-center" height="300">
+        <v-main class="d-flex align-center justify-center" height="890">
             <v-container>
                 <v-sheet
-                border="dashed md" color="suface-light" height="150" rounded="lg" width="100%"
+                border="dashed md" color="suface-light" height="790" rounded="lg" width="100%"
                 >
-
+                <h1 class="my-5 text-secondary">Buttons</h1>
+<p><v-btn>기본형</v-btn><v-btn prepend-icon="$vuetify" class="mx-3">btn</v-btn>
+<v-btn prepend-icon="$vuetify" append-icon="$vuetify">btn</v-btn>
+<v-btn prepend-icon="$vuetify" stacked class="mx-3">btn</v-btn>
+</p>
                 </v-sheet>
             </v-container>
         </v-main>
