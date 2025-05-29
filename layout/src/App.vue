@@ -1,198 +1,46 @@
 <template>
-    <v-layout ref="app" class="rounded rounded-md border">
-        <v-app-bar color="surface-variant" name="app-bar">
-            <child v-slot="{print}">
-                <v-btn class="mx-auto" @click="print('app-bar')">
-                    Get data
-                </v-btn>
-            </child>
-        </v-app-bar>
+    <v-card class="mx-auto" max-width="430">
+<v-layout>
+    <v-app-bar color="info" density="prominent">
+        <template v-slot:prepend>
+            <v-app-bar-nav-icon></v-app-bar-nav-icon>
+        </template>
 
-        <v-navigation-drawer
-        color="surface-light" name="drawer" permanent
-        >
+        <v-app-bar-title>My Recent Trips</v-app-bar-title>
 
-        <div class="d-flex justify-center align-center h-100">
-            <child v-slot="{print}">
-                <v-btn variant="text" @click="print('drawer')">
-                    Get data
-                </v-btn>
-            </child>
-        </div>
+        <template v-slot:append>
+            <v-btn icon>
+                <v-icon>mdi-dots-vertical</v-icon>
+            </v-btn>
+        </template>
+        
+    </v-app-bar>
 
-        </v-navigation-drawer>
-        <v-main class="d-flex align-center justify-center">
-            <v-container>
-<v-row align="center" justify="center" >
-    <v-col cols="12" md="4" sm="6">
-<div class="position-absolute d-flex align-center justify-center">
-    <v-btn color="deep-purple-darken-2" size="x-large" @click="dialog = !dialog">
-        팝업창 열기
-    </v-btn>
-</div>        
-    </v-col>
-    <v-col cols="12" md="4" sm="6">
-
-    </v-col>
-    <v-col cols="12" md="4" sm="6">
-<v-card
-class="px-2 mx-auto"
-max-width="900"
-rounded="lg"
-text="How .... Vuetify?"
-theme="dark"
-title="SURVEY"
-variant="flat"
->
-<template v-slot:append>
-    <div class="me-n2">
-        <v-btn
-        density="comfortable"
-        icon="$close"
-        variant="plain"
-        ></v-btn>
-    </div>
+    <v-main>
+        <v-container fluid>
+            <v-card
+            class="mb-2"
+            density="compact"
+            prepend-avatar="https://randomuser.me/api/portraits/women/10.jpg"
+            subtitle="난 뽄지를 좋아하지 않는다 for 진희"
+            title="haffy end"
+            variant="text"
+            border
+            >
+<v-img height="128" src="https://picsum.photos/512/128?image=660" cover></v-img>
+<v-card-text>
+난 정말 뽄지를 좋아하지 않음
+</v-card-text>
+<template v-slot:actions>
+    <v-btn color="primary" variant="text">View More</v-btn>
+    <v-btn color="primary" variant="text">See un Map</v-btn>
 </template>
 
-<v-item-group
-v-model="model"
-class="d-flex justify-sm-space-between px-6 pt-2 pb-6"
->
-<v-item v-for="n in 5" :key="n">
-    <template v-slot:default="{toggle}">
-        <v-btn
-        :active="model != null && model + 1 >= n"
-        :icon="`mdi-numeric-${n}`"
-        height="40"
-        variant="text"
-        width="40"
-        border
-        @click="toggle"
-        >
-        </v-btn>
-    </template>
-</v-item>
+            </v-card>
+        </v-container>
+    </v-main>
 
-</v-item-group>
-</v-card>
-    </v-col>
-</v-row>
-<v-row align="center" justify="center" >
-<v-col cols="auto">
-    <v-btn density="compact" icon="mdi-plus"></v-btn>
-</v-col>
-<v-col cols="auto">
-    <v-btn density="comfortable" icon="$vuetify"></v-btn>
-</v-col>
-<v-col cols="auto">
-    <v-btn density="default" icon="mdi-open-in-new"></v-btn>
-</v-col>
-<v-col cols="auto">
-    <v-btn icon="mdi-account" size="x-small"></v-btn>
-</v-col>
-<v-col cols="auto">
-    <v-btn icon="$vuetify"></v-btn>
-</v-col>
-<v-col cols="auto">
-    <v-btn icon="mdi-open-in-new" size="large"></v-btn>
-</v-col>
-<v-col cols="auto">
-    <v-btn icon="mdi-calendar" size="x-large"></v-btn>
-</v-col>
-<v-col cols="auto"></v-col>
-</v-row>
-<v-row align="center" justify="center" >
-    <v-col>
-<h1>Rounded Button</h1>
-    </v-col>
-</v-row>
-<v-row align="center" justify="center" >
-<v-col cols="12" md="4" sm="6">
-    <v-btn rounded="0" size="x-large" block>Rounded 0</v-btn>
-</v-col>
-<v-col cols="12" md="4" sm="6">
-    <v-btn rounded="xs" size="x-large" block>Rounded xs</v-btn>
-</v-col>
-<v-col cols="12" md="4" sm="6">
-   <v-btn rounded="sm" size="x-large" block>Rounded sm</v-btn>
-</v-col>
-<v-col cols="12" md="4" sm="6">
-<v-btn rounded="x-large" size="x-large" block>Rounded x-large</v-btn>
-</v-col>
-<v-col cols="12" md="4" sm="6">
-<v-btn rounded="lg" size="x-large" block>Rounded lg</v-btn>
-</v-col>
-<v-col cols="12" md="4" sm="6">
-<v-btn rounded="xl" size="x-large" block>Rounded xl</v-btn>
-</v-col>
-</v-row>
-<v-row align="center" justify="center" >
-    <v-col>
-        <v-btn block>Block Button</v-btn>
-    </v-col>
-</v-row>
-<v-row align="center" justify="center" >
-        <v-col cols="auto" class="mt100">
-<v-btn size="x-small">x-small</v-btn>
-        </v-col>
-        <v-col cols="auto" class="mt100">
-<v-btn size="small">small</v-btn>            
-        </v-col>
-        <v-col cols="auto" class="mt100">
-<v-btn size="auto">auto</v-btn>            
-        </v-col>
-        <v-col cols="auto" class="mt100">
-<v-btn size="large">large</v-btn>            
-        </v-col>
-        <v-col cols="auto" class="mt100">
-<v-btn size="x-large">x-large</v-btn>             
-        </v-col>
-    </v-row>
-
-                <v-sheet
-                border="dashed md" color="suface-light" rounded="lg" width="100%"
-                >
-                <h1 class="my-5 text-secondary">Buttons</h1>
-<p><v-btn>기본형</v-btn><v-btn prepend-icon="$vuetify" class="mx-3">btn</v-btn>
-<v-btn prepend-icon="$vuetify" append-icon="$vuetify">btn</v-btn>
-<v-btn prepend-icon="$vuetify" stacked class="mx-3">btn</v-btn>
-</p>
-                </v-sheet>
-            </v-container>
-        </v-main>
-
-        <v-footer color="surface-light" name="footer" app>
-                <v-btn 
-                class="mx-auto"
-                text="Get data"
-                variant="text"
-                 @click="print('footer')">
-                </v-btn>
-        </v-footer>
-    </v-layout>
+    
+</v-layout>
+    </v-card>
 </template>
-
-<script setup>/*얘는 vue3에서 컴포지션 API를 간결하게 사용할수 있도록 해주는 
- SFC문법 입니다
-*/
-import {useLayout} from 'vuetify'
-
-const Child = {
-    setup (props, ctx){//setup함수의 매개변수 입니다
-        const {getLayoutItem} = useLayout()
-
-        function print(key){//키 값을 받아서 아이템의 정보를 json 으로 경고창 출력
-            alert(JSON.stringify(getLayoutItem(key), null, 2))
-        }
-
-        return () => ctx.slots.default({print})
-    },
-}
-</script>
-
-<style>
-.mt100{
-margin-top:50px;
-margin-bottom:50px;
-}
-</style>
