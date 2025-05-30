@@ -16,5 +16,6 @@ declare module 'vue' {
     Nav1: typeof import('./src/components/nav/Nav1.vue')['default']
     Nav2: typeof import('./src/components/nav/Nav2.vue')['default']
     Nav3: typeof import('./src/components/nav/Nav3.vue')['default']
+    Nav4: typeof import('./src/components/nav/Nav4.vue')['default']
   }
 }

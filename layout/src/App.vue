@@ -1,46 +1,93 @@
 <template>
-    <v-card class="mx-auto" max-width="430">
-<v-layout>
-    <v-app-bar color="info" density="prominent">
-        <template v-slot:prepend>
-            <v-app-bar-nav-icon></v-app-bar-nav-icon>
-        </template>
+    <v-layout>
+        <v-app-bar title="확장패널"></v-app-bar>
+        <v-navigation-drawer>
+            <v-list nav>
+<v-list-item title="Navigation drawer" link></v-list-item>
+            </v-list>
+        </v-navigation-drawer>
 
-        <v-app-bar-title>My Recent Trips</v-app-bar-title>
+        <v-main>
+            <v-container>
+                <v-row>
+                    <v-col>
+<h1 class="text-primary">확장패널 => <small class="text-secondary">부트스트랩에서는 collapse {faq}</small></h1>
+      <v-expansion-panels>
+        <v-expansion-panel
+        title="집에 갈까요?"
+        text="just now"
+        >
+        </v-expansion-panel>
+      </v-expansion-panels>    
+      
+      <div class="text-subtitle-2 mt-4 mb-2">
+        Inset
+      </div>
+      <v-expansion-panels class="my-4" variant="inset">
+        <v-expansion-panel
+        v-for="i in 3"
+        :key="i"
+        text="Aliquip excepteur deserunt nostrud in cupidatat in nulla velit."
+        title="Item"></v-expansion-panel>
+      </v-expansion-panels>
 
-        <template v-slot:append>
-            <v-btn icon>
-                <v-icon>mdi-dots-vertical</v-icon>
-            </v-btn>
-        </template>
-        
-    </v-app-bar>
+      <div class="text-subtitle-2 mt-4 mb-2">
+        Popout
+      </div>
+      <v-expansion-panels class="my-4" variant="popout">
+        <v-expansion-panel
+        v-for="i in 3"
+        :key="i"
+        text="Aliquip excepteur deserunt nostrud in cupidatat in nulla velit."
+        title="Item"></v-expansion-panel>
+      </v-expansion-panels>
 
-    <v-main>
-        <v-container fluid>
-            <v-card
-            class="mb-2"
-            density="compact"
-            prepend-avatar="https://randomuser.me/api/portraits/women/10.jpg"
-            subtitle="난 뽄지를 좋아하지 않는다 for 진희"
-            title="haffy end"
-            variant="text"
-            border
-            >
-<v-img height="128" src="https://picsum.photos/512/128?image=660" cover></v-img>
-<v-card-text>
-난 정말 뽄지를 좋아하지 않음
-</v-card-text>
-<template v-slot:actions>
-    <v-btn color="primary" variant="text">View More</v-btn>
-    <v-btn color="primary" variant="text">See un Map</v-btn>
+      <h1>외부에서 제어할때</h1>
+      <div class="text-center d-flex pb-4">
+        <v-btn class="ma-2" @click="all">
+            All
+        </v-btn>
+        <v-btn class="ma-2" @click="none">
+            None
+        </v-btn>
+      </div>
+
+      <div class="pb-4">v-model{{ panel }}</div>
+
+      <v-expansion-panels v-model="panel" multiple>
+        <v-expansion-panel
+        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        title="Foo"
+        value="foo"
+      ></v-expansion-panel>
+
+      <v-expansion-panel
+        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        title="Bar"
+        value="bar"
+      ></v-expansion-panel>
+
+      <v-expansion-panel
+        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        title="Baz"
+        value="baz"
+      ></v-expansion-panel>
+      </v-expansion-panels>
+</v-col>
+                </v-row>
+            </v-container>
+        </v-main>
+    </v-layout>
 </template>
 
-            </v-card>
-        </v-container>
-    </v-main>
+<script setup>
+import {ref} from 'vue'
 
-    
-</v-layout>
-    </v-card>
-</template>
+const panel = ref([])
+function all(){
+    panel.value=['foo','bar','baz']
+}
+function none(){
+    panel.value = []
+}
+</script>
