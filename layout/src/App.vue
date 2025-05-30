@@ -1,93 +1,156 @@
 <template>
-    <v-layout>
-        <v-app-bar title="확장패널"></v-app-bar>
-        <v-navigation-drawer>
-            <v-list nav>
-<v-list-item title="Navigation drawer" link></v-list-item>
-            </v-list>
+    <v-layout class="rounded rounded-md border">
+        <v-navigation-drawer color="suface-variant" permanent>  
+<v-select
+v-model="location"
+:items="location"
+label="Location"
+>
+</v-select>
+<v-menu :location="location">
+    <template v-slot:activator="{ props }">
+        <v-btn color="primary" v-bind="props">
+        Dropdown
+        </v-btn>
+
+        <v-list>
+            <v-list-item
+            v-for="(item, index) in items"
+            :key="index"
+            :value="index"
+            >
+<v-list-item-title>{{ item.title }}</v-list-item-title>
+            </v-list-item>
+        </v-list>
+    </template>
+</v-menu>         
         </v-navigation-drawer>
-
-        <v-main>
-            <v-container>
-                <v-row>
-                    <v-col>
-<h1 class="text-primary">확장패널 => <small class="text-secondary">부트스트랩에서는 collapse {faq}</small></h1>
-      <v-expansion-panels>
-        <v-expansion-panel
-        title="집에 갈까요?"
-        text="just now"
+        <v-app-bar
+        :order="order"
+        color="grey-lighten-2"
+        title="bar"
+        flat
         >
-        </v-expansion-panel>
-      </v-expansion-panels>    
-      
-      <div class="text-subtitle-2 mt-4 mb-2">
-        Inset
-      </div>
-      <v-expansion-panels class="my-4" variant="inset">
-        <v-expansion-panel
-        v-for="i in 3"
+        <template v-slot:append>
+            <v-switch
+            v-model="order"
+            class="me-2"
+            false-value="0"
+            label="Toggle order"
+            true-value="-1"
+            hide-details
+            inset
+            >
+            </v-switch>
+        </template>
+
+        </v-app-bar>
+
+        <v-main class="d-flex align-center justify-center">
+<v-container>
+    <v-row>
+        <v-col cols="auto" sm="auto">
+<h1>v-divider</h1>
+<v-divider></v-divider>
+<h2>vertical</h2>
+<v-divider vertical class="border-opacity-100"></v-divider>
+        </v-col>
+        <v-col cols="auto" sm="auto">
+<h1>Lists</h1>  
+<v-card class="mx-auto">
+    <v-list density="compact">
+        <v-list-subheader>REPORTS</v-list-subheader>
+        <v-list-item
+        v-for="(item, i) in items"
         :key="i"
-        text="Aliquip excepteur deserunt nostrud in cupidatat in nulla velit."
-        title="Item"></v-expansion-panel>
-      </v-expansion-panels>
-
-      <div class="text-subtitle-2 mt-4 mb-2">
-        Popout
-      </div>
-      <v-expansion-panels class="my-4" variant="popout">
-        <v-expansion-panel
-        v-for="i in 3"
-        :key="i"
-        text="Aliquip excepteur deserunt nostrud in cupidatat in nulla velit."
-        title="Item"></v-expansion-panel>
-      </v-expansion-panels>
-
-      <h1>외부에서 제어할때</h1>
-      <div class="text-center d-flex pb-4">
-        <v-btn class="ma-2" @click="all">
-            All
-        </v-btn>
-        <v-btn class="ma-2" @click="none">
-            None
-        </v-btn>
-      </div>
-
-      <div class="pb-4">v-model{{ panel }}</div>
-
-      <v-expansion-panels v-model="panel" multiple>
-        <v-expansion-panel
-        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        title="Foo"
-        value="foo"
-      ></v-expansion-panel>
-
-      <v-expansion-panel
-        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        title="Bar"
-        value="bar"
-      ></v-expansion-panel>
-
-      <v-expansion-panel
-        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        title="Baz"
-        value="baz"
-      ></v-expansion-panel>
-      </v-expansion-panels>
-</v-col>
-                </v-row>
-            </v-container>
+        :value="item"
+        color="primary"
+        >
+        <template v-slot:prepend>
+            <v-icon :icon="item.icon"></v-icon>
+        </template>
+        <v-list-item-title v-text="item.text"></v-list-item-title>
+    </v-list-item>
+    </v-list>
+</v-card>          
+        </v-col>
+        <v-col cols="auto" sm="auto">
+<h1>list2</h1> 
+<v-card class="mx-auto" max-width="">
+    <v-toolbar color="cyan-lighten-1">
+        <v-btn icon="mdi-menu" variant="text"></v-btn>
+        <v-toolbar-title>Inbox</v-toolbar-title>
+        <v-btn icon="mdi-magnify" variant="text"></v-btn>
+    </v-toolbar>
+    <v-list
+    :items="itemss"
+    lines="three"
+    item-props
+    >
+<template v-slot:subtitle="{subtitle}">
+    <div v-html="subtitle"></div>
+</template>
+</v-list>
+</v-card>          
+        </v-col>
+        <v-col cols="auto" sm="auto">
+<h1>four</h1>           
+        </v-col>
+    </v-row>
+</v-container>
         </v-main>
     </v-layout>
 </template>
 
 <script setup>
+import {shallowRef} from 'vue'
 import {ref} from 'vue'
 
-const panel = ref([])
-function all(){
-    panel.value=['foo','bar','baz']
-}
-function none(){
-    panel.value = []
-}
+const order = shallowRef(0)
+
+
+const items = [
+    {text: 'Real-Time', icon:'mdi-clock'},
+    {text: 'Audience', icon:'mdi-account'},
+    {text: 'Conversions', icon:'mdi-flag'},
+    {title: 'Click Me'},{title: 'Click Me'},{title: 'Click Me'},{title: 'Click Me 2'},
+]
+
+const location = ref('end')
+const locations = [
+    'top','bottom','start','end','center',
+]
+
+ const itemss = [
+    { type: 'subheader', title: 'Today' },
+    {
+      prependAvatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
+      title: 'Brunch this weekend?',
+      subtitle: `<span class="text-primary">Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`,
+    },
+    { type: 'divider', inset: true },
+    {
+      prependAvatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
+      title: 'Summer BBQ',
+      subtitle: `<span class="text-primary">to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I'm out of town this weekend.`,
+    },
+    { type: 'divider', inset: true },
+    {
+      prependAvatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
+      title: 'Oui oui',
+      subtitle: '<span class="text-primary">Sandra Adams</span> &mdash; Do you have Paris recommendations? Have you ever been?',
+    },
+    { type: 'divider', inset: true },
+    {
+      prependAvatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
+      title: 'Birthday gift',
+      subtitle: '<span class="text-primary">Trevor Hansen</span> &mdash; Have any ideas about what we should get Heidi for her birthday?',
+    },
+    { type: 'divider', inset: true },
+    {
+      prependAvatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg',
+      title: 'Recipe to try',
+      subtitle: '<span class="text-primary">Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
+    },
+  ]
 </script>
