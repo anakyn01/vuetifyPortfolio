@@ -9,6 +9,8 @@ import Nav5 from '../components/nav/Nav5.vue';
 import Button from '../components/coms/Button.vue';
 import Expan from '../components/coms/Expan.vue';
 import HelloWorld from '../components/coms/HelloWorld.vue';
+import Tooltip from '../components/coms/Tooltip.vue';
+import Bread from '../components/coms/Bread.vue';
 
 const routes = [
    { path: '/', redirect: '/home' }, // 기본 리디렉션
@@ -21,6 +23,8 @@ const routes = [
   { path: '/button', component: Button },
   { path: '/expan', component: Expan },
   { path: '/hello', component: HelloWorld },
+  { path: '/tooltip', component: Tooltip },
+  { path: '/bread', component: Bread},
 ]
 
 const router = createRouter({
