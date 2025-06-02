@@ -1,16 +1,9 @@
-/**
- * main.ts
- *
- * Bootstraps Vuetify and other plugins then mounts the App`
- */
-
-// Plugins
 import { registerPlugins } from '@/plugins'
 
 // Components
 import App from './App.vue'
 
-import router from './router'
+import router from './router/router.ts'
 
 // Composables
 import { createApp } from 'vue'
@@ -21,10 +14,16 @@ import 'unfonts.css'
 import { createVuetify } from 'vuetify'
 
 //react나 vue는 항상 외부모듈을 사용할때 마운팅해야됨
-const app = createApp(App)
+/*const app = createApp(App)
 const vuetify = createVuetify()
-app.use(vuetify).use(router).mount('#app')
+app.use(vuetify).use(router).mount('#app')*/
+const vuetify = createVuetify()
+
+createApp(App)
+.use(router)
+.use(vuetify)
+.mount('#app')
 
 
-registerPlugins(app)
+//registerPlugins(app)
 

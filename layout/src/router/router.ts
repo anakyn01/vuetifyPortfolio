@@ -1,14 +1,14 @@
 /*npm install vue-router */
 import { createRouter, createWebHistory} from 'vue-router'
-import App from './App.vue';
-import Nav1 from './components/nav/Nav1.vue';
-import Nav2 from './components/nav/Nav2.vue';
-import Nav3 from './components/nav/Nav3.vue';
-import Nav4 from './components/nav/Nav4.vue';
-import Nav5 from './components/nav/Nav5.vue';
-import Button from './components/coms/Button.vue';
-import Expan from './components/coms/Expan.vue';
-import HelloWorld from './components/coms/HelloWorld.vue';
+import App from '../App.vue';
+import Nav1 from '../components/nav/Nav1.vue';
+import Nav2 from '../components/nav/Nav2.vue';
+import Nav3 from '../components/nav/Nav3.vue';
+import Nav4 from '../components/nav/Nav4.vue';
+import Nav5 from '../components/nav/Nav5.vue';
+import Button from '../components/coms/Button.vue';
+import Expan from '../components/coms/Expan.vue';
+import HelloWorld from '../components/coms/HelloWorld.vue';
 
 const routes = [
     {path:'/',component: App},
@@ -27,4 +27,5 @@ const router = createRouter({
     routes
 })
 
-export default router
+
+export default router;
