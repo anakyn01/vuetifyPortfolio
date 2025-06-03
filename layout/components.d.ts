@@ -14,6 +14,7 @@ declare module 'vue' {
     Button: typeof import('./src/components/coms/Button.vue')['default']
     Expan: typeof import('./src/components/coms/Expan.vue')['default']
     Fbutton: typeof import('./src/components/coms/Fbutton.vue')['default']
+    Footers: typeof import('./src/components/coms/Footers.vue')['default']
     HelloWorld: typeof import('./src/components/coms/HelloWorld.vue')['default']
     Home: typeof import('./src/components/coms/Home.vue')['default']
     Layout3: typeof import('./src/components/layout/layout3.vue')['default']
