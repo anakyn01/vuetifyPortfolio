@@ -12,6 +12,7 @@ import HelloWorld from '../components/coms/HelloWorld.vue';
 import Tooltip from '../components/coms/Tooltip.vue';
 import Bread from '../components/coms/Bread.vue';
 import Bottom1 from '../components/nav/Bottom1.vue';
+import Fbutton from '../components/coms/Fbutton.vue';
 
 const routes = [
    { path: '/', redirect: '/home' }, // 기본 리디렉션
@@ -27,6 +28,7 @@ const routes = [
   { path: '/tooltip', component: Tooltip },
   { path: '/bread', component: Bread},
   { path: '/bottom1', component: Bottom1},
+  { path: '/fbutton', component: Fbutton},
 ]
 
 const router = createRouter({

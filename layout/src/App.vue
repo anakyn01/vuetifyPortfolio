@@ -13,6 +13,7 @@
             <v-btn text :to="'/nav5'" >nav5</v-btn>
             <v-btn text :to="'/bottom1'" >bottom navi</v-btn>
             <v-btn text :to="'/button'" >button</v-btn>
+            <v-btn text :to="'/fbutton'">floating Btn</v-btn>
             <v-btn text :to="'/hello'" >hello</v-btn>
             <v-btn text :to="'/tooltip'">툴팁</v-btn>
         </v-app-bar>
