@@ -8,7 +8,8 @@
             <v-btn text :to="'/nav2'">nav2</v-btn>
             <v-btn text :to="'/nav3'" >nav3</v-btn>
             <v-btn text :to="'/nav4'" >nav4</v-btn>
-            <v-btn text :to="'/nav5'" >nav5</v-btn>                       
+            <v-btn text :to="'/nav5'" >nav5</v-btn>  
+            <v-btn text :to="'/tabs'" >tabs</v-btn>                     
             <v-btn text :to="'/button'" >button</v-btn>
             <v-btn text :to="'/fbutton'">floating Btn</v-btn>
             <v-btn text :to="'/hello'" >hello</v-btn>

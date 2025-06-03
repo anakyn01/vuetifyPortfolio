@@ -27,6 +27,8 @@ declare module 'vue' {
     Nav5: typeof import('./src/components/nav/Nav5.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Tabs: typeof import('./src/components/coms/Tabs.vue')['default']
+    Taps: typeof import('./src/components/coms/Taps.vue')['default']
     Tooltip: typeof import('./src/components/coms/Tooltip.vue')['default']
     Tooltips: typeof import('./src/components/coms/Tooltips.vue')['default']
   }
