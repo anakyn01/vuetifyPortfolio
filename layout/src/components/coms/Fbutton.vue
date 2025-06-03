@@ -113,18 +113,68 @@ absolute offset
 </v-card> 
 </v-col>
 <v-col cols="12" md="4" sm="4">
-<h1></h1>   
+<h1>Lateral screen</h1>  
+<v-card>
+    <v-layout>
+        <v-app-bar color="indigo" absolute flat>
+        <v-app-bar-nav-icon></v-app-bar-nav-icon>
+        <v-app-bar-title>Page title</v-app-bar-title>
+        <v-btn icon="mdi-magnify"></v-btn>
+        <v-btn icon="mdi-dots-vertical">
+            <v-icon></v-icon>
+        </v-btn>
+
+        <template v-slot:extension>
+            <v-tabs v-model="tabs" align-tabs="title" slider-color="pink">
+            <v-tab text="Item One" value="one"></v-tab> 
+            <v-tab text="Item Two" value="two"></v-tab>
+            <v-tab text="Item Three" value="three"></v-tab>      
+            </v-tabs>
+        </template>
+                </v-app-bar>
+
+        <v-main>
+            <v-sheet height="150"></v-sheet>
+        </v-main>
+
+        <v-fab
+        :key="activeFab.icon"
+        :color="activeFab.color"
+        :icon="activeFab.icon"
+        class="ms-4 mb-4"
+        location="bottom start"
+        size="64"
+        absolute
+        app
+        appear
+        >
+
+        </v-fab>
+
+    </v-layout>
+</v-card> 
 </v-col>           
         </v-row>
     </v-container>
 </template>
 
 <script setup>
-import {ref} from 'vue'
+import {computed, ref} from 'vue'
 
 const hidden = ref(false)
 
 const dialog = ref(false)
+const tabs = ref(null)
+  const activeFab = computed(() => {
+    switch (tabs.value) {
+      case 'one': return { color: 'success', icon: 'mdi-share-variant' }
+      case 'two': return { color: 'red', icon: 'mdi-pencil' }
+      case 'three': return { color: 'green', icon: 'mdi-chevron-up' }
+      default: return {}
+    }
+  })
+
+
 const items = ref([
 {icon:'mdi-folder',iconClass:'bg-grey-lighten-1 text-white',title:'Photos',subtitle:'June 3, 2025'},
 {icon:'mdi-folder',iconClass:'bg-grey-lighten-1 text-white',title:'Photos',subtitle:'June 17, 2025'},
