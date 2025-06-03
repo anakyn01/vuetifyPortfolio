@@ -75,7 +75,42 @@ v-model="dialog" max-width="500"
 
 </v-col> 
 <v-col cols="12" md="4" sm="4">
-<h1></h1>   
+<h1>Display animation</h1>  
+<v-card class="mx-auto" max-width="">
+    <v-layout>
+        <v-app-bar absolute extended>
+            <v-app-bar-nav-icon></v-app-bar-nav-icon>
+            <template v-slot:extension>
+                <v-fab
+                :active="!hidden"
+                class="ms-4"
+                icon="mdi-plus"
+                location="bottom start"
+                size="small"
+                absolute
+                offset
+                ></v-fab>
+            </template>
+        </v-app-bar>
+        <v-main>
+            <v-sheet class="pa-4 text-center" color="surface-light">
+                <v-btn
+:text="hidden ? 'Show' : 'Hide'"    
+color="surface-variant"    
+width="80"    
+@click="hidden = !hidden"    
+                ></v-btn>
+            </v-sheet>
+            <v-sheet height="125">
+                <v-fab
+:active="!hidden" class="me-4" icon="mdi-plus" location="top end"
+absolute offset
+                >
+                </v-fab>
+            </v-sheet>
+        </v-main>
+    </v-layout>
+</v-card> 
 </v-col>
 <v-col cols="12" md="4" sm="4">
 <h1></h1>   
@@ -86,6 +121,8 @@ v-model="dialog" max-width="500"
 
 <script setup>
 import {ref} from 'vue'
+
+const hidden = ref(false)
 
 const dialog = ref(false)
 const items = ref([
