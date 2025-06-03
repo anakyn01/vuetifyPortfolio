@@ -7,7 +7,7 @@ import Footer from './include/Footer.vue';
     <v-app>       
         <Header></Header>        
     </v-app> 
-    <Footer></Footer>
+    <Footer/>
 </template>
 
 <script>
