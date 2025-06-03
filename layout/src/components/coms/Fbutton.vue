@@ -83,3 +83,18 @@ v-model="dialog" max-width="500"
         </v-row>
     </v-container>
 </template>
+
+<script setup>
+import {ref} from 'vue'
+
+const dialog = ref(false)
+const items = ref([
+{icon:'mdi-folder',iconClass:'bg-grey-lighten-1 text-white',title:'Photos',subtitle:'June 3, 2025'},
+{icon:'mdi-folder',iconClass:'bg-grey-lighten-1 text-white',title:'Photos',subtitle:'June 17, 2025'},
+{icon:'mdi-folder',iconClass:'bg-grey-lighten-1 text-white',title:'Photos',subtitle:'June 28, 2025'},
+])
+const items2 = ref([
+{icon:'mdi-clipboard-text',iconClass:'bg-blue text-white',title:'Vacation',subtitle:'June 3, 2025'},
+{icon:'mdi-gesture-tap-button',iconClass:'bg-amber text-white',title:'Kitchen',subtitle:'June 17, 2025'},    
+])
+</script>
