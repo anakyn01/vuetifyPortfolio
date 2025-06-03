@@ -1,5 +1,42 @@
 <template>
-    <v-container>
+    <div class="mt100"></div>
+<v-layout class="border rounded">
+    <div class="mx-auto mt100">
+        <v-btn
+        color="deep-purple" 
+        variant="outlined"
+        @click="active = !active"
+        >
+        
+toggle Navigation
+        </v-btn>
+        <div class="mb-5"></div>
+    </div>
+
+<v-bottom-navigation
+:active="active"
+color="indigo">
+<v-btn>
+    <v-icon>mdi-history</v-icon>
+    Recents
+</v-btn>
+
+<v-btn>
+    <v-icon>mdi-heart</v-icon>
+    favorites
+</v-btn>
+
+<v-btn>
+    <v-icon>mdi-map-marker</v-icon>
+    Nearby
+</v-btn>
+
+</v-bottom-navigation>
+
+
+</v-layout>
+<div class="my-5"></div>
+<v-container>
     <v-row>
         <v-col>
         </v-col>
@@ -73,6 +110,8 @@ mode="shift"
 
 <script setup>
 import { computed, ref} from 'vue'
+
+const active = ref(true)//이구문으로 팝업창이 올라가고 내려감
 
 const value = ref(1)
 const color = computed(() => {
