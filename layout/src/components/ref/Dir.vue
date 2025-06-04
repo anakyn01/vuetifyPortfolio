@@ -1,5 +1,12 @@
 <template>
     <v-container>
+<v-row>
+    <v-col cols="12">
+<h1>Basic css Transition</h1>    
+<v-btn @click="this.doesRotate = true">Rotate</v-btn>   
+<div :class="{ rotate: doesRotate}" id="rect"></div>
+    </v-col>
+</v-row>
         <v-row>
 <v-col cols="12" md="4">
 <ol>
@@ -8,12 +15,15 @@
     </li>
 </ol>
 </v-col>
-<v-col cols="12" md="4">
-    
+<v-col cols="12" md="8">
+    <div class="border w-100 wrap">
+        <figure v-for="x in manyFood">
+            <img v-bind:src="x.url" class="mrPizza">
+            <figcaption>{{ x.name }}</figcaption>
+        </figure>
+    </div>
 </v-col>
-<v-col cols="12" md="4">
-    
-</v-col>
+
         </v-row>
         <v-row>
             <v-col cols="12" md="4">
@@ -60,7 +70,12 @@
 <style>
 #msg{padding:10px; font-size:x-large; background-color:lightgreen;}
 .pinkBG{background-color:lightpink;}
-.mrPizza{width:50%;}
+.mrPizza{width:100%;}
+figure{width:80px; padding:10px; margin:10px; background: lightskyblue; border-radius:5px;}
+figcaption{text-align:center;}
+.wrap{display:flex; flex-wrap:wrap; justify-content: space-around;}
+.rotate{rotate:180deg; transition:all 1s ease-in-out;}
+#rect{border:2px solid; background: lightcoral; width:60px; height:60px;}
 </style>
 
 <script>
@@ -74,6 +89,16 @@ size:'48px',
 isImportant:true,
 text:'I like burrito, pizza, ...',
 manyFoods:['Burrito','Salad','Cake','Soup','Fish','Pizza','Rice'],
+manyFood: [
+{name: 'Burrito', url: 'src/assets/img/img_burrito.svg'},
+{name: 'Salad', url: 'src/assets/img/img_salad.svg'},
+{name: 'Cake', url: 'src/assets/img/img_cake.svg'},
+{name: 'Soup', url: 'src/assets/img/img_soup.svg'},
+{name: 'Fish', url: 'src/assets/img/img_fish.svg'},
+{name: 'Pizza', url: 'src/assets/img/img_pizza.svg'},
+{name: 'Rice', url: 'src/assets/img/img_rice.svg'}
+],
+doesRotate: false,
         };
     }
 }
