@@ -14,8 +14,9 @@ import Bread from '../components/coms/Bread.vue';
 import Bottom1 from '../components/nav/Bottom1.vue';
 import Fbutton from '../components/coms/Fbutton.vue';
 import Footers from '../components/coms/Footers.vue';
-import Taps from '../components/coms/Tabs.vue';
-import Tabs from '@/components/coms/Tabs.vue';
+import Tabs from '../components/coms/Tabs.vue';
+import Page from '../components/coms/Page.vue';
+import Dir from '../components/ref/Dir.vue';
 
 const routes = [
    { path: '/', redirect: '/home' }, // 기본 리디렉션
@@ -34,6 +35,8 @@ const routes = [
   { path: '/fbutton', component: Fbutton},
   { path: '/footers', component: Footers},
   { path: '/tabs', component: Tabs},
+  { path: '/page', component: Page},
+  { path: '/dir', component: Dir},
 ]
 
 const router = createRouter({
