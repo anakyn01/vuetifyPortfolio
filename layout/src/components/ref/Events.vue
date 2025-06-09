@@ -3,9 +3,10 @@
     <v-row>
         <v-col cols="12" md="4">
 <div id="lightDiv">
-    <div v-show="light"></div>
-    <img src="src/assets/img/img_lightBulb.svg"/>
+    <div v-show="lightOn"></div>
+    <img src="../../assets/img/img_lightBulb.svg"/>
 </div>
+<v-btn v-on:click=" lightOn = !lightOn">Switch light</v-btn>
         </v-col>
         <v-col cols="12" md="4">
 
@@ -29,11 +30,18 @@
 export default{
  data(){
     return{
-        count:0
+        count:0,
+        lightOn:false,
     }
  }
 }
 </script>
 
 <style>
+#lightDiv{position: relative; width:150px; height:150px;}
+#lightDiv > img{position:relative; width:100%; height:100%;}
+#lightDiv > div{
+    position: absolute; top:10%; left:10%; width:80%; height:80%;
+border-radius: 50%; background-color: yellow;
+}
 </style>
