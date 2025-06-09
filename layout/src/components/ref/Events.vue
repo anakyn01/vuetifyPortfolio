@@ -1,6 +1,17 @@
 <template>
 <v-container>
     <v-row>
+<v-col cols="12" md="4">
+    <div class="color"
+    v-on:mousemove=" colorVal = Math.floor(Math.random() * 360) "
+    v-bind:style="{backgroundColor:'hsl('+colorVal+',60%,60%)'}"
+    ></div>
+    <p>background-color : hsl(<strong>{{ colorVal }}</strong>)</p>
+</v-col>    
+<v-col cols="12" md="4"></v-col>
+<v-col cols="12" md="4"></v-col>    
+    </v-row>
+    <v-row>
         <v-col cols="12" md="4">
 <div id="lightDiv">
     <div v-show="lightOn"></div>
@@ -9,7 +20,9 @@
 <v-btn v-on:click=" lightOn = !lightOn">Switch light</v-btn>
         </v-col>
         <v-col cols="12" md="4">
-
+<h1>count input events</h1>
+<input type="text" v-on:input="inputCount++" placeholder="Start writing.."/>
+<p>{{ 'Input events occured: ' + inputCount }}</p>
         </v-col>
         <v-col cols="12" md="4">
 <p>{{ "count "  + count}}</p>
@@ -32,6 +45,8 @@ export default{
     return{
         count:0,
         lightOn:false,
+        inputCount:0,
+        colorVal:50,
     }
  }
 }
@@ -41,7 +56,8 @@ export default{
 #lightDiv{position: relative; width:150px; height:150px;}
 #lightDiv > img{position:relative; width:100%; height:100%;}
 #lightDiv > div{
-    position: absolute; top:10%; left:10%; width:80%; height:80%;
+position: absolute; top:10%; left:10%; width:80%; height:80%;
 border-radius: 50%; background-color: yellow;
 }
+.color{width:200px; height:80px;}
 </style>

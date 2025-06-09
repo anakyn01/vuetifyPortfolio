@@ -3,8 +3,25 @@
             <v-toolbar-title>Vuetify reference</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn text :to="'/home'" >Home</v-btn>
-            <v-btn text :to="'/dir'" >뷰디렉티브</v-btn>
-            <v-btn text :to="'/events'" >이벤트</v-btn>
+
+            <v-menu offset-y>
+                <template #activator="{ props }">
+                    <v-btn v-bind="props" text>
+                        vue
+                        <v-icon end>mdi-menu-down</v-icon>
+                    </v-btn>
+                </template>
+                <v-list>
+                    <v-list-item
+                    v-for="(item, index) in menuItems"
+                    :key="index"
+                    @click="navigate(item.link)"
+                    >
+<v-list-item-title>{{ item.title  }}</v-list-item-title>
+                    </v-list-item>
+                </v-list>
+            </v-menu>
+
             <v-btn text :to="'/bread'" >빵부스러기</v-btn>
             <v-btn text :to="'/nav1'" >nav1</v-btn>
             <v-btn text :to="'/nav2'">nav2</v-btn>
@@ -24,3 +41,20 @@
          <router-view></router-view>
     </v-main>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+
+const menuItems = ref([
+    {title:'뷰디렉티브', link:'/dir'},
+    {title:'이벤트', link:'/events'},
+])
+//add
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+function navigate(link) {
+  router.push(link)
+}
+</script>
