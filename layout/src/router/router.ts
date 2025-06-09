@@ -17,6 +17,7 @@ import Footers from '../components/coms/Footers.vue';
 import Tabs from '../components/coms/Tabs.vue';
 import Page from '../components/coms/Page.vue';
 import Dir from '../components/ref/Dir.vue';
+import Events from '../components/ref/Events.vue';
 
 const routes = [
    { path: '/', redirect: '/home' }, // 기본 리디렉션
@@ -37,6 +38,7 @@ const routes = [
   { path: '/tabs', component: Tabs},
   { path: '/page', component: Page},
   { path: '/dir', component: Dir},
+  { path: '/events', component: Events},
 ]
 
 const router = createRouter({

@@ -13,6 +13,7 @@ declare module 'vue' {
     Bread: typeof import('./src/components/coms/Bread.vue')['default']
     Button: typeof import('./src/components/coms/Button.vue')['default']
     Dir: typeof import('./src/components/ref/Dir.vue')['default']
+    Events: typeof import('./src/components/ref/Events.vue')['default']
     Expan: typeof import('./src/components/coms/Expan.vue')['default']
     Fbutton: typeof import('./src/components/coms/Fbutton.vue')['default']
     Footers: typeof import('./src/components/coms/Footers.vue')['default']

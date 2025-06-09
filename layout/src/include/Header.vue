@@ -4,6 +4,7 @@
             <v-spacer></v-spacer>
             <v-btn text :to="'/home'" >Home</v-btn>
             <v-btn text :to="'/dir'" >뷰디렉티브</v-btn>
+            <v-btn text :to="'/events'" >이벤트</v-btn>
             <v-btn text :to="'/bread'" >빵부스러기</v-btn>
             <v-btn text :to="'/nav1'" >nav1</v-btn>
             <v-btn text :to="'/nav2'">nav2</v-btn>
