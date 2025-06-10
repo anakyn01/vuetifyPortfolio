@@ -22,6 +22,7 @@ declare module 'vue' {
     Layout3: typeof import('./src/components/layout/layout3.vue')['default']
     LayoutOne: typeof import('./src/components/layout/LayoutOne.vue')['default']
     LayoutTwo: typeof import('./src/components/layout/LayoutTwo.vue')['default']
+    Met: typeof import('./src/components/ref/Met.vue')['default']
     Nav1: typeof import('./src/components/nav/Nav1.vue')['default']
     Nav2: typeof import('./src/components/nav/Nav2.vue')['default']
     Nav3: typeof import('./src/components/nav/Nav3.vue')['default']

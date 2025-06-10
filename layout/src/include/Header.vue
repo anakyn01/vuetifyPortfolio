@@ -71,6 +71,7 @@ import { ref } from 'vue'
 const menuItems = ref([
     {title:'뷰디렉티브', link:'/dir'},
     {title:'이벤트', link:'/events'},
+    {title:'함수', link:'/fs'},
 ])
 
 const navItems = ref([
