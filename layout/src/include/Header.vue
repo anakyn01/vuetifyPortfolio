@@ -7,7 +7,25 @@
             <v-menu offset-y>
                 <template #activator="{ props }">
                     <v-btn v-bind="props" text>
-                        vue
+                        vue html용
+                        <v-icon end>mdi-menu-down</v-icon>
+                    </v-btn>
+                </template>
+                <v-list>
+                    <v-list-item
+                    v-for="(item, index) in menuItems"
+                    :key="index"
+                    @click="navigate(item.link)"
+                    >
+<v-list-item-title>{{ item.title  }}</v-list-item-title>
+                    </v-list-item>
+                </v-list>
+            </v-menu>
+
+                        <v-menu offset-y>
+                <template #activator="{ props }">
+                    <v-btn v-bind="props" text>
+                        vue 설치용
                         <v-icon end>mdi-menu-down</v-icon>
                     </v-btn>
                 </template>
@@ -72,6 +90,9 @@ const menuItems = ref([
     {title:'뷰디렉티브', link:'/dir'},
     {title:'이벤트', link:'/events'},
     {title:'함수', link:'/fs'},
+    {title:'계산된속성', link:'/computed'},
+    {title:'v-model', link:'/vmodel'},
+    {title:'워처스', link:'/watchers'},
 ])
 
 const navItems = ref([
