@@ -17,7 +17,7 @@
 <div class="app">
     <label for="">
         <p>이메일 주소 유효성 체크</p>
-        <input type="email" v-model="inpAddress">
+        <input type="email" v-model="inpAddress" class="form-control">
         <p v-bind:class="myClass">
             <code>
                 {{ feedbackText }}
@@ -49,11 +49,21 @@
 export default {
     data(){
         return{
-
+inpAddress:"",feedbackText:"",myClass:"invalid"
         }
     },
     watch:{
-        
+        inpAddress(newVal, oldVal) {
+            if(!newVal.includes('@')){
+                this.feedbackText = '잘못된 이메일 주소';
+                this.myClass = 'invalid';
+            }else if(!oldVal.includes('@') && newVal.includes('@')){
+                this.feedbackText = '완벽 그 잡체';
+                this.myClass = 'valid';
+            }else{
+                this.feedbackText = '이메일 주소가 유효합니다';
+            }
+        }
     }
 }
 </script>

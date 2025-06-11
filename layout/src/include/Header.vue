@@ -76,6 +76,23 @@
                 </v-list>
             </v-menu>
 
+            <v-menu offset-y>
+                <template #activator="{ props }">
+                    <v-btn v-bind="props" text>
+                        Vuetify3 Form Inputs & Controls
+                        <v-icon end>mdi-menu-down</v-icon>
+                    </v-btn>
+                </template>
+                <v-list>
+                    <v-list-item
+                    v-for="(form, index) in formItems"
+                    :key="index"
+                    @click="navigate(form.link)"
+                    >
+                    <v-list-item-title>{{ form.title  }}</v-list-item-title>
+                    </v-list-item>
+                </v-list>
+            </v-menu>
   
         </v-app-bar>
     <v-main>
@@ -110,19 +127,26 @@ const vuetifyItems = ref([
     {title:'helloworld', link:'/tooltip'},
     {title:'page', link:'/page'},
     {title:'footers', link:'/footer'},
-     {title:'bottom navi', link:'/bottom1'},
+    {title:'bottom navi', link:'/bottom1'},
+])
+
+const formItems = ref([
+    {title:'자동완성', link:'/auto'},
+    {title:'체크박스', link:'/check'},
+    {title:'콤보박스', link:'/combo'},
+    {title:'파일', link:'/file'},
+    {title:'양식', link:'/form'},
+    {title:'사용자 정의 인풋', link:'/custom'},
+    {title:'넘버인풋', link:'/nums'},
+    {title:'OTP인풋', link:'/otp'},
+    {title:'라디오버튼', link:'/radio'},
+    {title:'랜지슬라이더', link:'/range'},
+    {title:'스위치', link:'/sw'},
+    {title:'텍스트필드', link:'/textf'},
+    {title:'텍스트 에이리어', link:'/texta'},
 ])
 /*
-          <v-btn text :to="'/bread'" >빵부스러기</v-btn>
-
-            <v-btn text :to="'/tabs'" >tabs</v-btn>                     
-            <v-btn text :to="'/button'" >button</v-btn>
-            <v-btn text :to="'/fbutton'">floating Btn</v-btn>
-            <v-btn text :to="'/hello'" >hello</v-btn>
-            <v-btn text :to="'/tooltip'">툴팁</v-btn>
-            <v-btn text :to="'/page'" >페이지네이션</v-btn>
-            <v-btn text :to="'/footers'">footer</v-btn>
-            <v-btn text :to="'/bottom1'" >bottom navi</v-btn>
+       
 */
 //add
 import { useRouter } from 'vue-router'
