@@ -79,7 +79,7 @@
             <v-menu offset-y>
                 <template #activator="{ props }">
                     <v-btn v-bind="props" text>
-                        Vuetify3 Form Inputs & Controls
+                        V-Form Inputs & Controls
                         <v-icon end>mdi-menu-down</v-icon>
                     </v-btn>
                 </template>
@@ -90,6 +90,60 @@
                     @click="navigate(form.link)"
                     >
                     <v-list-item-title>{{ form.title  }}</v-list-item-title>
+                    </v-list-item>
+                </v-list>
+            </v-menu>
+
+             <v-menu offset-y>
+                <template #activator="{ props }">
+                    <v-btn v-bind="props" text>
+                        V-selection
+                        <v-icon end>mdi-menu-down</v-icon>
+                    </v-btn>
+                </template>
+                <v-list>
+                    <v-list-item
+                    v-for="(select, index) in selectItems"
+                    :key="index"
+                    @click="navigate(select.link)"
+                    >
+                    <v-list-item-title>{{ select.title  }}</v-list-item-title>
+                    </v-list-item>
+                </v-list>
+            </v-menu>
+
+             <v-menu offset-y>
+                <template #activator="{ props }">
+                    <v-btn v-bind="props" text>
+                        V-feedback
+                        <v-icon end>mdi-menu-down</v-icon>
+                    </v-btn>
+                </template>
+                <v-list>
+                    <v-list-item
+                    v-for="(feedback, index) in feedbackItems"
+                    :key="index"
+                    @click="navigate(feedback.link)"
+                    >
+                    <v-list-item-title>{{ feedback.title  }}</v-list-item-title>
+                    </v-list-item>
+                </v-list>
+            </v-menu>
+
+                  <v-menu offset-y>
+                <template #activator="{ props }">
+                    <v-btn v-bind="props" text>
+                        V-img, icon
+                        <v-icon end>mdi-menu-down</v-icon>
+                    </v-btn>
+                </template>
+                <v-list>
+                    <v-list-item
+                    v-for="(img, index) in imgItems"
+                    :key="index"
+                    @click="navigate(img.link)"
+                    >
+                    <v-list-item-title>{{ img.title  }}</v-list-item-title>
                     </v-list-item>
                 </v-list>
             </v-menu>
@@ -144,6 +198,39 @@ const formItems = ref([
     {title:'스위치', link:'/sw'},
     {title:'텍스트필드', link:'/textf'},
     {title:'텍스트 에이리어', link:'/texta'},
+])
+
+const selectItems = ref([
+    {title:'버튼토글', link:'/btoggle'},
+    {title:'캐러셀슬라이드', link:'/cslide'},
+    {title:'칩그룹', link:'/chip'},
+    {title:'아이템그룹', link:'/igroup'},
+    {title:'슬라이드그룹', link:'/slideg'},
+    {title:'스텝퍼', link:'/step'},
+    {title:'윈도우즈', link:'/windows'},
+])
+
+const feedbackItems = ref([
+    {title:'alerts', link:'/alerts'},
+    {title:'badges', link:'/badges'},
+    {title:'banner', link:'/banner'},
+    {title:'empty', link:'/empty'},
+    {title:'hover', link:'/hover'},
+    {title:'progresscircular', link:'/pcircular'},
+    {title:'progresslinear', link:'/plinear'},
+    {title:'ratings', link:'/ratings'},
+    {title:'skeletonloaders', link:'/skloaders'},
+    {title:'snackbars', link:'/sbars'},
+    {title:'snackbarqueue', link:'/queue'},
+    {title:'timelines', link:'/time'},
+])
+
+const imgItems = ref([
+    {title:'종횡비', link:'/ratio'},
+    {title:'아바타', link:'/ava'},
+    {title:'아이콘', link:'/icons'},
+    {title:'이미지', link:'/imgs'},
+    {title:'시차', link:'/parallax'},
 ])
 /*
        
