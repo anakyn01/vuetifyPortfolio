@@ -12,12 +12,13 @@ What do you need?<br>
 
 <p>
 How many?<br>
-<input type="number" required placeholder="number of items..." v-model="itemNumber">
+<input type="number" required placeholder="number of items..." 
+v-model="itemNumber">
 </p>
 
 <p>
 Important?
-<input type="number" v-model="itemImpotant">
+<input type="number" v-model="itemImportant">
 {{ itemImportant }}
 </p>
 <button type="submit">Add item</button>
@@ -28,7 +29,7 @@ Important?
 <ul id="ulToFind">
     <li
     v-for="item in shoppingList"
-    v-bind:class="{impClass: item.Important?}"
+    v-bind:class="{impClass: item.Important}"
     v-on:click="item.found=!item.found"
     v-show="!item.found">
     {{ item.name }},{{ item.number }}
@@ -38,7 +39,7 @@ Important?
 <ul id="ulFound">
     <li
     v-for="item in shoppingList"
-    v-bind:class="{impClass: item.Important?}"
+    v-bind:class="{impClass: item.Important}"
     v-on:click="item.found=!item.found"
     v-show="!item.found">
     {{ item.name }},{{ item.number }}
