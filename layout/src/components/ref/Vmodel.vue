@@ -3,7 +3,7 @@
         <v-row>
 <v-col cols="12" md="4">
 <h1>동적으로 만드는 모델 </h1>
-<form v-on:submit.prevent="addItem">
+<form v-on:submit.prevent="addItem" class="app">
 
 <p>
 What do you need?<br>
@@ -18,7 +18,7 @@ v-model="itemNumber">
 
 <p>
 Important?
-<input type="number" v-model="itemImportant">
+<input type="checkbox" v-model="itemImportant" class="form-check">
 {{ itemImportant }}
 </p>
 <button type="submit">Add item</button>
@@ -29,8 +29,8 @@ Important?
 <ul id="ulToFind">
     <li
     v-for="item in shoppingList"
-    v-bind:class="{impClass: item.Important}"
-    v-on:click="item.found=!item.found"
+    v-bind:class="{ impClass : item.important }"
+    v-on:click="item.found =! item.found"
     v-show="!item.found">
     {{ item.name }},{{ item.number }}
     </li>
@@ -39,8 +39,8 @@ Important?
 <ul id="ulFound">
     <li
     v-for="item in shoppingList"
-    v-bind:class="{impClass: item.Important}"
-    v-on:click="item.found=!item.found"
+    v-bind:class="{ impClass : item.important}"
+    v-on:click="item.found =! item.found"
     v-show="!item.found">
     {{ item.name }},{{ item.number }}
     </li>
@@ -51,3 +51,44 @@ Important?
         </v-row>
     </v-container>
 </template>
+
+<script>
+export default {
+    data(){
+        return{
+itemName: null, itemNumber: null, itemImportant: false,
+shoppingList:[
+          { name: 'Tomatoes', number: 5, important: false, found: false },
+          { name: 'Bread', number: 1, important: false, found: false },
+          { name: 'Soap', number: 1, important: true, found: true }
+]
+        }
+    },
+    methods:{
+addItem(){
+    let item = {
+        name : this.itemName, 
+        number : this.itemNumber,
+        important: this.itemImportant,
+        found: false
+    }
+    this.shoppingList.push(item)
+    this.itemName=null
+    this.itemNumber=null
+    this.itemImportant=false
+}
+    }
+}
+</script>
+
+<style>
+.app{border:dashed black 1px; display:inline-block; padding:0 20px;}
+.app label, .app li { padding:5px; border-radius: 5px;}
+.app label:hover, .app li:hover {
+cursor:pointer; background-color: lightgray;    
+}
+ul,ol,li{list-style-type:none;}
+li{margin:2px; background-color: rgb(211, 254, 211);}
+.impClass{background-color: rgb(255, 202, 202);}
+#ulFound li{text-decoration: line-through; background-color:rgb(230,230,230);}
+</style>
