@@ -22,6 +22,43 @@ import Met from '@/components/ref/Met.vue';
 import Comp from '@/components/ref/Comp.vue';
 import Vmodel from '@/components/ref/Vmodel.vue';
 import What from '@/components/ref/What.vue';
+import Auto from '@/components/coms/Auto.vue';
+import Btoggle from '@/components/coms/Btoggle.vue';
+import Check from '@/components/coms/Check.vue';
+import Chip from '@/components/coms/Chip.vue';
+import Combo from '@/components/coms/Combo.vue';
+import Cslide from '@/components/coms/Cslide.vue';
+import Custom from '@/components/coms/Custom.vue';
+import File from '@/components/coms/File.vue';
+import Form from '@/components/coms/Form.vue';
+import Igroup from '@/components/coms/Igroup.vue';
+import Nums from '@/components/coms/Nums.vue';
+import Otp from '@/components/coms/Otp.vue';
+import Radio from '@/components/coms/Radio.vue';
+import Range from '@/components/coms/Range.vue';
+import Slideg from '@/components/coms/Slideg.vue';
+import Step from '@/components/coms/Step.vue';
+import Sw from '@/components/coms/Sw.vue';
+import Texta from '@/components/coms/Texta.vue';
+import Textf from '@/components/coms/Textf.vue';
+import Windows from '@/components/coms/Windows.vue';
+import Alerts from '@/components/coms/Alerts.vue';
+import Badges from '@/components/coms/Badges.vue';
+import Banner from '@/components/coms/Banner.vue';
+import Empty from '@/components/coms/Empty.vue';
+import Hover from '@/components/coms/Hover.vue';
+import Pcircular from '@/components/coms/Pcircular.vue';
+import Plinear from '@/components/coms/Plinear.vue';
+import Rating from '@/components/coms/Rating.vue';
+import Skloaders from '@/components/coms/Skloaders.vue';
+import Sbars from '@/components/coms/Sbars.vue';
+import Queue from '@/components/coms/Queue.vue';
+import Time from '@/components/coms/Time.vue';
+import Ratio from '@/components/coms/Ratio.vue';
+import Ava from '@/components/coms/Ava.vue';
+import Icons from '@/components/coms/Icons.vue';
+import Imgs from '@/components/coms/Imgs.vue';
+import Parallax from '@/components/coms/Parallax.vue';
 
 const routes = [
    { path: '/', redirect: '/home' }, // 기본 리디렉션
@@ -47,6 +84,43 @@ const routes = [
   { path: '/computed', component: Comp},
   { path: '/vmodel', component: Vmodel},
   { path: '/watchers', component: What},
+  { path: '/auto', component: Auto },
+  { path: '/btoggle', component: Btoggle },
+  { path: '/check', component: Check },
+  { path: '/chip', component: Chip },
+  { path: '/combo', component: Combo },
+  { path: '/cslide', component: Cslide },
+  { path: '/custom', component: Custom },
+  { path: '/file', component: File },
+  { path: '/form', component: Form },
+  { path: '/igroup', component: Igroup },
+  { path: '/nums', component: Nums },
+  { path: '/otp', component: Otp },
+  { path: '/radio', component: Radio },
+  { path: '/range', component: Range },
+  { path: '/slideg', component: Slideg },
+  { path: '/step', component: Step },
+  { path: '/sw', component: Sw },
+  { path: '/texta', component: Texta },
+  { path: '/textf', component: Textf },
+  { path: '/windows', component: Windows },
+  { path: '/alerts', component: Alerts },
+  { path: '/badges', component: Badges },
+  { path: '/banner', component: Banner },
+   { path: '/empty', component: Empty },
+  { path: '/hover', component: Hover },
+  { path: '/pcircular', component: Pcircular },
+  { path: '/plinear', component: Plinear },
+  { path: '/rating', component: Rating },
+  { path: '/skloaders', component: Skloaders },
+  { path: '/sbars', component: Sbars },
+  { path: '/queue', component: Queue },
+  { path: '/time', component: Time },
+  { path: '/ratio', component: Ratio },
+  { path: '/ava', component: Ava },
+  { path: '/icons', component: Icons },
+  { path: '/imgs', component: Imgs },
+  { path: '/parallax', component: Parallax },
 
 ]
 
