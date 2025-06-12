@@ -61,7 +61,7 @@ import Imgs from '@/components/coms/Imgs.vue';
 import Parallax from '@/components/coms/Parallax.vue';
 
 const routes = [
-   { path: '/', redirect: '/home' }, // 기본 리디렉션
+   { path: '/', redirect: '/' }, // 기본 리디렉션
   { path: '/home', component: Home },
   { path: '/nav1', component: Nav1 },
   { path: '/nav2', component: Nav2 },
@@ -121,6 +121,7 @@ const routes = [
   { path: '/icons', component: Icons },
   { path: '/imgs', component: Imgs },
   { path: '/parallax', component: Parallax },
+  { path: '/ratings', component: Rating },
 
 ]
 
